@@ -1,7 +1,7 @@
 services:
     laravel.test:
         build:
-            context: './vendor/laravel/sail/runtimes/8.4'
+            context: './docker/8.4'
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP:-1000}'
@@ -29,6 +29,7 @@ services:
             - minio
             - mailpit
             - meilisearch
+            - selenium
     pgsql:
         image: 'postgres:18-alpine'
         ports:
@@ -40,7 +41,7 @@ services:
             POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
         volumes:
             - 'sail-pgsql:/var/lib/postgresql/data'
-            - './vendor/laravel/sail/database/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
+            - './docker/pgsql/create-testing-database.sql:/docker-entrypoint-initdb.d/10-create-testing-database.sql'
         networks:
             - sail
         healthcheck:
@@ -153,6 +154,12 @@ services:
                 - 'http://127.0.0.1:7700/health'
             retries: 3
             timeout: 5s
+    selenium:
+        image: selenium/standalone-chromium:latest
+        volumes:
+            - /dev/shm:/dev/shm
+        networks:
+            - sail
 networks:
     sail:
         driver: bridge
