@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Laravel Docker Debug",
+      "type": "php",
+      "request": "launch",
+      "port": 9003,
+      "pathMappings": {
+        "/var/www/html": "${workspaceFolder}"
+      },
+      "log": true,
+      "hostname": "0.0.0.0",
+      "preLaunchTask": "docker-up",
+      "postDebugTask": "docker-down"
+    }
+  ]
+}

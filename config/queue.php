@@ -73,6 +73,17 @@ return [
             'after_commit' => false,
         ],
 
+        // 'rabbitmq' => [
+        //     'driver' => 'rabbitmq',
+        //     'queue' => env('RABBITMQ_QUEUE', 'default'),
+        //     'connection' => PhpAmqpLib\Connection\AMQPStreamConnection::class,
+        //     'host' => env('RABBITMQ_HOST', 'rabbitmq'), // Use the service name from docker-compose
+        //     'port' => env('RABBITMQ_PORT', 5672),
+        //     'user' => env('RABBITMQ_LOGIN', 'guest'),
+        //     'password' => env('RABBITMQ_PASSWORD', 'guest'),
+        //     'vhost' => env('RABBITMQ_VHOST', '/'),
+        // ],
+
         'deferred' => [
             'driver' => 'deferred',
         ],
