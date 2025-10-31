@@ -40,3 +40,11 @@ sudo systemctl start postgresql
 ```bash
 # URL: http://localhost:7700
 ```
+
+## Gestão de Serviços - pgAdmin (PostgreSQL)
+
+```bash
+# URL: http://localhost:5050/
+# user: hello@example.com
+# pass: password
+```
