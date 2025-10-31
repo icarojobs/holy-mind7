@@ -23,6 +23,7 @@ services:
             - sail
         depends_on:
             - pgsql
+            - pgadmin
             - redis
             - rabbitmq
             - minio
